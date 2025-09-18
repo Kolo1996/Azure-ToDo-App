@@ -5,11 +5,11 @@ function App() {
   const [newTodo, setNewTodo] = useState("");
 
   // Backend-API-URL (Azure Function)
-  const API_BASE = "https://<deine-function-app>.azurewebsites.net/api";
+  const API_BASE = "http://localhost:7071/api";
 
   // Todos laden
   useEffect(() => {
-    fetch(`${API_BASE}/todos`)
+    fetch(`${API_BASE}/getToDo`)
       .then((res) => res.json())
       .then((data) => setTodos(data))
       .catch((err) => console.error("Fehler beim Laden:", err));
@@ -19,7 +19,7 @@ function App() {
   const addTodo = async () => {
     if (!newTodo.trim()) return;
 
-    const res = await fetch(`${API_BASE}/todo`, {
+    const res = await fetch(`${API_BASE}/postToDo`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: newTodo }),

@@ -1,9 +1,29 @@
 {
-  "name": "azure-todo-api",
+  "name": "azure-todo",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "start": "func start"
+    "start": "react-scripts start",
+    "build-frontend": "cd src && npm install && npm run build",
+    "build-backend": "cd api && npm install",
+    "build": "npm run build-frontend && npm run build-backend",
+    "deploy": "echo 'Deployment über GitHub Actions oder Azure CLI'"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
